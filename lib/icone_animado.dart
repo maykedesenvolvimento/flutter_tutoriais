@@ -13,7 +13,6 @@ class _IconeAnimadoState extends State<IconeAnimado>
     vsync: this,
     duration: const Duration(milliseconds: 500),
   );
-
   double valorSlider = 0.5;
   Duration get duracao => Duration(milliseconds: (valorSlider * 1000).toInt());
 
