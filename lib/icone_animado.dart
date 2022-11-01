@@ -9,16 +9,13 @@ class IconeAnimado extends StatefulWidget {
 
 class _IconeAnimadoState extends State<IconeAnimado>
     with TickerProviderStateMixin {
-  bool clicado = false;
-
-  double duracao = 0.5;
-  int get duracaoMilisegundos => (duracao * 1000).toInt();
-
   late AnimationController controller = AnimationController(
-    duration: Duration(milliseconds: duracaoMilisegundos),
-    reverseDuration: Duration(milliseconds: duracaoMilisegundos),
     vsync: this,
+    duration: const Duration(milliseconds: 500),
   );
+
+  double valorSlider = 0.5;
+  Duration get duracao => Duration(milliseconds: (valorSlider * 1000).toInt());
 
   @override
   Widget build(BuildContext context) {
@@ -32,35 +29,33 @@ class _IconeAnimadoState extends State<IconeAnimado>
           children: [
             GestureDetector(
               onTap: () {
-                clicado = !clicado;
-                if (clicado) {
-                  controller.reverse();
-                } else {
-                  controller.forward();
-                }
+                controller.status == AnimationStatus.completed
+                    ? controller.reverse()
+                    : controller.forward();
               },
               child: AnimatedIcon(
                 size: 250,
                 color: Colors.orange,
-                icon: AnimatedIcons.pause_play,
+                icon: AnimatedIcons.play_pause,
                 progress: CurvedAnimation(
                   curve: Curves.linear,
                   parent: controller,
                 ),
               ),
             ),
-            const Text('Duração da animação:'),
-            Text('$duracaoMilisegundos milisegundos'),
+            Text(
+              'Duração da transição: ${duracao.inMilliseconds} ms',
+              style: const TextStyle(fontSize: 20),
+            ),
             Slider(
-              onChanged: (double value) {
+              value: valorSlider,
+              onChanged: (val) {
                 setState(() {
-                  duracao = value;
-                  controller.reverseDuration = controller.duration =
-                      controller.reverseDuration =
-                          Duration(milliseconds: duracaoMilisegundos);
+                  valorSlider = val;
+                  controller.duration = duracao;
+                  controller.reverseDuration = duracao;
                 });
               },
-              value: duracao,
             ),
           ],
         ),
