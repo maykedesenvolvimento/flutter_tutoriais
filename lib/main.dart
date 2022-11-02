@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'icone_animado.dart';
+import 'widgets/icone_animado.dart';
 
 void main() {
-  runApp(const Aplicacao());
+  runApp(const MyApp());
 }
 
-class Aplicacao extends StatelessWidget {
-  const Aplicacao({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
