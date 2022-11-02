@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'widgets/01_icone_animado.dart';
+import 'widgets/widget_01_animated_icon.dart';
 
 void main() {
   runApp(const MyApp());
