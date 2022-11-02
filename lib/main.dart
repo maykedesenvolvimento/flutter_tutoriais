@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_tutoriais/widgets/widget_02_animated_container.dart';
+import 'package:flutter_tutoriais/widgets/widget_01_animated_icon.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.orange,
       ),
-      home: const ContainerAnimado(),
+      home: const IconeAnimado(),
     );
   }
 }

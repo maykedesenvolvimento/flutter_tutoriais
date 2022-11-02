@@ -34,7 +34,7 @@ class _IconeAnimadoState extends State<IconeAnimado>
             child: AnimatedIcon(
               size: 250,
               color: Colors.orange,
-              icon: AnimatedIcons.arrow_menu,
+              icon: AnimatedIcons.play_pause,
               progress: CurvedAnimation(
                 parent: controller,
                 curve: Curves.linear,
